@@ -8,9 +8,9 @@ let app = express();
 const PORT = process.env.PORT || 10000; //Así es si la creas en terminal (L04), sino esta definido le da el otro valor
 
 //Deveulve esto si pone en navegador localhost:10000/...
-app.get("/hola", (req,res) => {
-    res.send(`<html> <body> <h1> HOLA </h1> </body> </html>`)
-});
+//app.get("/hola", (req,res) => {
+ //   res.send(`<html> <body> <h1> HOLA </h1> </body> </html>`)
+//});
 app.get("/cool", (req,res) => {
     res.send(`<html> <body> <h1> HOLA  ${cool()}</h1> </body> </html>`)
 });
