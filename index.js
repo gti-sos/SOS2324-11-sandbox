@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 10000; //Así es si la creas en terminal (L04),
 //app.get("/hola", (req,res) => {
  //   res.send(`<html> <body> <h1> HOLA </h1> </body> </html>`)
 //});
+
+app.use("/", express.static("./public"));
+
 app.get("/cool", (req,res) => {
     res.send(`<html> <body> <h1> HOLA  ${cool()}</h1> </body> </html>`)
 });
