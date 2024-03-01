@@ -2,6 +2,8 @@ let cool = require("cool-ascii-faces");
 let express = require("express");
 let bodyParser = require("body-parser"); //---------------- Clase 23/02---------------------
 let contactAPI = require("./api-contacts") //---------------- Clase 23/02---------------------
+let dataStore = require("nedb"); //---------------- Clase 01/03---------------------
+let dbContacts = new dataStore();  //---------------- Clase 01/03---------------------
 
 let app = express();
 
@@ -17,16 +19,16 @@ app.use("/", express.static("./public"));
 
 app.use(bodyParser.json()); //---------------- Clase 23/02---------------------
 
-contactAPI(app); //---------------- Clase 23/02---------------------
+contactAPI(app, dbContacts); //---------------- Clase 23/02--------------------- //---------------- Clase 01/03---------------------
 
 app.get("/cool", (req,res) => {
     res.send(`<html> <body> <h1> HOLA  ${cool()}</h1> </body> </html>`)
 });
 
 //Así mejor
-app.listen(PORT, () =>
+app.listen(PORT, () =>  //Usar coolback
 {
-    console.log(`Server listening on port PORT ${PORT} `  ); //Asincrono
+    console.log(`Server listening on port PORT ${PORT} `  ); //Asincrono: puede tardar
 });
 
 
